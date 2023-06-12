@@ -1,20 +1,33 @@
-// 1
+// Problema 1:
 function isPrime(number) {
-    if (number <= 1) {
+    if (number < 2) {
       return false;
     }
-    
+  
     for (let i = 2; i <= Math.sqrt(number); i++) {
       if (number % i === 0) {
         return false;
       }
     }
-    
+  
     return true;
   }
+  
+  function listPrimes() {
+    const primes = [];
+    for (let i = 1; i <= 1000; i++) {
+      if (isPrime(i)) {
+        primes.push(i);
+      }
+    }
+    return primes;
+  }
+  
+  console.log(listPrimes());
+  
 
   
-//2
+// Problema 2:
 function verificarSenha(senha) {
     const regexMaiuscula = /[A-Z]/;
     const regexMinuscula = /[a-z]/;
@@ -38,12 +51,40 @@ function verificarSenha(senha) {
   
     return "A senha é válida.";
   }
+
+
+// Problema 3:
+function calcularFatorial(numero) {
+    if (numero === 0 || numero === 1) {
+      return 1;
+    }
   
-  // Exemplo de uso da função:
-  const senha1 = "senha123";
-  const senha2 = "SenhaFort3";
-  const senha3 = "senha";
-  console.log(verificarSenha(senha1)); // Output: A senha deve conter pelo menos uma letra maiúscula.
-  console.log(verificarSenha(senha2)); // Output: A senha é válida.
-  console.log(verificarSenha(senha3)); // Output: A senha deve ter pelo menos 8 caracteres.
+    let resultado = 1;
+  
+    for (let i = 2; i <= numero; i++) {
+      resultado *= i;
+    }
+  
+    return resultado;
+  }
+  
+  for (let i = 1; i <= 10; i++) {
+    const fatorial = calcularFatorial(i);
+    console.log(`O fatorial de ${i} é igual a ${fatorial}`);
+  }
+
+  // Problema 4:
+  function verificarQuadradoPerfeito(numero) {
+    if (numero < 0) {
+      return false;
+    }
+  
+    let raiz = Math.sqrt(numero);
+  
+    if (raiz === Math.floor(raiz)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
   
